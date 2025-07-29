@@ -365,7 +365,7 @@
             background: radial-gradient(circle at center, transparent 30%, rgba(138, 43, 226, 0.1) 70%);
             z-index: -1;
         }
-        .music-control {
+          .music-control {
             position: fixed;
             bottom: 20px;
             right: 20px;
@@ -431,13 +431,22 @@
         <div class="timeline-marker" style="left: 95%"></div>
     </div>
 
-      <div class="music-control" onclick="backgroundMusic.toggle()">
+    <div id="music-control">
+        <i class="fas fa-volume-up"></i>
+    </div>
+
+    <audio id="background-music" loop>
+        <source src="" type="audio/mpeg">
+    </audio>
+     <div class="music-control" onclick="backgroundMusic.toggle()">
         <i class="fas fa-music"></i>
     </div>
 
-   
 
     <script>
+         document.querySelector('.enter-button').addEventListener('click', function() {
+            backgroundMusic.play();
+        });
         document.addEventListener('DOMContentLoaded', () => {
             // Handle background music
             const music = document.getElementById('background-music');
@@ -662,9 +671,6 @@
                 createSingleBubble();
             }, 30000);
         }
-          document.querySelector('.enter-button').addEventListener('click', function() {
-            backgroundMusic.play();
-        });
     </script>
 </body>
 </html>
